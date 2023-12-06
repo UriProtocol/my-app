@@ -1,15 +1,15 @@
 {
-  "title": "Light, fast & responsive",
-  "text": "This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling.",
+  "title": "Ligero, rápido y eficiente",
+  "text": "Puedes empezar a utilizar Foodie Flow en cualquier dispositivo en cuestión de minutos, y hacer más eficiente a tu negocio",
   "section": [
     {
-      "title": "Why Antd?",
-      "content": "Ant Design is a React UI library that has a lot of easy-to-use components for building elegant UI.",
+      "title": "¿Por qué Foodie Flow?",
+      "content": "Foodie Flow te permite manejar tu negocio de manera fácil y rápida desde cualquier dispositivo, sin necesidad de contratar más personal",
       "icon": "notes.svg"
     },
     {
-      "title": "Why styled-components?",
-      "content": "Styled Components gives you total control over your components.",
+      "title": "¿Qué otros beneficios tiene?",
+      "content": "Foodie Flow también genera estadísticas sobre tu negocxio, ayudandote a tomar mejores decisiones",
       "icon": "notes.svg"
     }
   ]

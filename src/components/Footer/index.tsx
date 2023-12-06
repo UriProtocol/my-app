@@ -51,68 +51,68 @@ const Footer = ({ t }: any) => {
         <Container>
           <Row justify="space-between">
             <Col lg={10} md={10} sm={12} xs={12}>
-              <Language>{t("Contact")}</Language>
-              <Large to="/">{t("Tell us everything")}</Large>
+              <Language>{t("Contacto")}</Language>
+              <Large to="/">{t("Cuentanos todo")}</Large>
               <Para>
-                {t(`Do you have any question? Feel free to reach out.`)}
+                {t(`¿Tienes alguna pregunta? Sientete libre de contactarnos`)}
               </Para>
               <a href="mailto:l.qqbadze@gmail.com">
-                <Chat>{t(`Let's Chat`)}</Chat>
+                <Chat>{t(`Hablemos`)}</Chat>
               </a>
             </Col>
             <Col lg={8} md={8} sm={12} xs={12}>
-              <Title>{t("Policy")}</Title>
+              <Title>{t("Politicas")}</Title>
               <Large to="/" left="true">
-                {t("Application Security")}
+                {t("Seguridad de aplicaciones")}
               </Large>
               <Large left="true" to="/">
-                {t("Software Principles")}
+                {t("Principios de software")}
               </Large>
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
               <Empty />
               <Large left="true" to="/">
-                {t("Support Center")}
+                {t("Centro de soporte")}
               </Large>
               <Large left="true" to="/">
-                {t("Customer Support")}
+                {t("Soporte al cliente")}
               </Large>
             </Col>
           </Row>
           <Row justify="space-between">
             <Col lg={10} md={10} sm={12} xs={12}>
               <Empty />
-              <Language>{t("Address")}</Language>
-              <Para>Rancho Santa Margarita</Para>
-              <Para>2131 Elk Street</Para>
-              <Para>California</Para>
+              <Language>{t("Dirección")}</Language>
+              <Para>Carr. Durango</Para>
+              <Para>Mezquital, Km. 4.5 Gabino Santillán.</Para>
+              <Para>Durango, Dgo.</Para>
             </Col>
             <Col lg={8} md={8} sm={12} xs={12}>
               <Title>{t("Company")}</Title>
               <Large left="true" to="/">
-                {t("About")}
+                {t("Sobre nosotros")}
               </Large>
               <Large left="true" to="/">
                 {t("Blog")}
               </Large>
-              <Large left="true" to="/">
+              {/*<Large left="true" to="/">
                 {t("Press")}
               </Large>
               <Large left="true" to="/">
                 {t("Careers & Culture")}
-              </Large>
+              </Large>*/}
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
-              <Label htmlFor="select-lang">{t("Language")}</Label>
+              <Label htmlFor="select-lang">{t("Lenguaje")}</Label>
               <LanguageSwitchContainer>
-                <LanguageSwitch onClick={() => handleChange("en")}>
+                {/*<LanguageSwitch onClick={() => handleChange("en")}>
                   <SvgIcon
                     src="united-states.svg"
                     aria-label="homepage"
                     width="30px"
                     height="30px"
                   />
-                </LanguageSwitch>
+                </LanguageSwitch>*/}
                 <LanguageSwitch onClick={() => handleChange("es")}>
                   <SvgIcon
                     src="spain.svg"
@@ -126,7 +126,7 @@ const Footer = ({ t }: any) => {
           </Row>
         </Container>
       </FooterSection>
-      <Extra>
+      {/*<Extra>
         <Container border={true}>
           <Row
             justify="space-between"
@@ -169,7 +169,7 @@ const Footer = ({ t }: any) => {
             </FooterContainer>
           </Row>
         </Container>
-      </Extra>
+      </Extra>*/}
     </>
   );
 };

@@ -1,5 +1,5 @@
 {
-  "About": "Acerca de",
+  "About": "Sobre nosotros",
   "Policy": "Politica",
   "Mission": "Misión",
   "Product": "Producto",
@@ -11,10 +11,10 @@
   "Software Principles": "Principios de software",
   "Support Center": "Centro de Apoyo",
   "Customer Support": "Atención al cliente",
-  "Address": "Habla A",
+  "Address": "Dirección",
   "Press": "Prensa",
   "Careers & Culture": "Carreras & cultura",
-  "Language": "Language",
+  "Language": "Lenguaje",
   "Explore": "Explorar",
   "Learn more": "Más información",
   "Get started": "Comenzar",
@@ -24,5 +24,6 @@
   "Name" : "Nombre",
   "Your Name": "Tu nombre",
   "Email" : "Email",
-  "Your Email": "Tu correo electrónico"
+  "Your Email": "Tu correo electrónico",
+  "Company": "Compañia"
 }
