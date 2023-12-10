@@ -1,10 +1,11 @@
-import { lazy } from "react";
+import { lazy, useEffect, useState } from "react";
 import IntroContent from "../../content/IntroContent.json";
 import MiddleBlockContent from "../../content/MiddleBlockContent.json";
 import AboutContent from "../../content/AboutContent.json";
 import MissionContent from "../../content/MissionContent.json";
 import ProductContent from "../../content/ProductContent.json";
 import ContactContent from "../../content/ContactContent.json";
+import axios from "axios";
 
 const Contact = lazy(() => import("../../components/ContactForm"));
 const MiddleBlock = lazy(() => import("../../components/MiddleBlock"));
@@ -12,28 +13,79 @@ const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 
+
+const contentInitState = {
+  titulo: "",
+  contenido: "",
+  boton: [{}],
+  section: [{}]
+}
+const contentInitState2 = {
+  titulo: "",
+  contenido: "",
+  boton: ""
+}
+
 const Home = () => {
+
+  const [hero, setHero] = useState(contentInitState)
+  const [start, setStart] = useState(contentInitState2)
+  const [aboutus, setAboutus] = useState(contentInitState)
+  const [product, setProduct] = useState(contentInitState)
+
+  useEffect(() =>{
+    getHero()
+    getStart()
+    getAboutus()
+    getProduct()
+  }, [])
+
+  async function getHero(){
+    const {data} = await axios.get('http://127.0.0.1:3000/hero')
+    const hero = data.at(-1)
+    const heroFormatted = {...hero, boton: [{title: hero.boton1}, {title: hero.boton2, color: "#fff"}]}
+    setHero(heroFormatted)
+  }
+  async function getStart(){
+    const {data} = await axios.get('http://127.0.0.1:3000/start')
+    const start = data.at(-1)
+    setStart(start)
+  }
+  async function getAboutus(){
+    const {data} = await axios.get('http://127.0.0.1:3000/aboutus')
+    const aboutus = data.at(-1)
+    const aboutusFormatted = {...aboutus, section: [{title: aboutus.subtitulo1, content: aboutus.subtexto1, icon: "notes.svg"}, {title: aboutus.subtitulo2, content: aboutus.subtexto2, icon: "notes.svg"}]}
+
+    setAboutus(aboutusFormatted)
+  }
+  async function getProduct(){
+    const {data} = await axios.get('http://127.0.0.1:3000/product')
+    const product = data.at(-1)
+
+    setProduct(product)
+  }
+  
   return (
     <Container>
       <ScrollToTop />
       <ContentBlock
         type="right"
-        title={IntroContent.title}
-        content={IntroContent.text}
-        button={IntroContent.button}
+        title={hero?.titulo}
+        content={hero?.contenido}
+        button={hero?.boton}
         icon="logo.svg"
         id="intro"
       />
       <MiddleBlock
-        title={MiddleBlockContent.title}
-        content={MiddleBlockContent.text}
-        button={MiddleBlockContent.button}
+        title={start?.titulo}
+        content={start?.contenido}
+        button={start?.boton}
       />
       <ContentBlock
         type="left"
-        title={AboutContent.title}
-        content={AboutContent.text}
-        section={AboutContent.section}
+        title={aboutus?.titulo}
+        content={aboutus?.contenido}
+        section={aboutus?.section}
         icon="graphs.svg"
         id="about"
       />
@@ -46,8 +98,8 @@ const Home = () => {
       />*/}
       <ContentBlock
         type="left"
-        title={ProductContent.title}
-        content={ProductContent.text}
+        title={product?.titulo}
+        content={product?.contenido}
         icon="waving.svg"
         id="product"
       />
