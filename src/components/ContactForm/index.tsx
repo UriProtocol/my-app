@@ -9,6 +9,7 @@ import Block from "../Block";
 import Input from "../../common/Input";
 import TextArea from "../../common/TextArea";
 import { ContactContainer, FormGroup, Span, ButtonContainer } from "./styles";
+import axios from "axios";
 
 const Contact = ({ title, content, id, t }: ContactProps) => {
   const { values, errors, handleChange, handleSubmit } = useForm(
@@ -24,6 +25,24 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
     );
   };
 
+  async function postContact(body: any){
+    try {
+      console.log(body)
+      await axios.post('http://127.0.0.1:3000/contact', body)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  function handleFormSubmit(e: any){
+    e.preventDefault()
+    if(!values.nombre || !values.email || !values.mensaje) {
+      alert("Por favor rellena todos los campos!")
+      return
+    }
+    postContact(values)
+  }
+
   return (
     <ContactContainer id={id}>
       <Row justify="space-between" align="middle">
@@ -34,13 +53,13 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
         </Col>
         <Col lg={12} md={12} sm={24} xs={24}>
           <Slide direction="right">
-            <FormGroup autoComplete="off" onSubmit={handleSubmit}>
+            <FormGroup autoComplete="off" onSubmit={handleFormSubmit}>
               <Col span={24}>
                 <Input
                   type="text"
-                  name="name"
+                  name="nombre"
                   placeholder="Your Name"
-                  value={values.name || ""}
+                  value={values.nombre || ""}
                   onChange={handleChange}
                 />
                 <ValidationType type="name" />
@@ -58,8 +77,8 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
               <Col span={24}>
                 <TextArea
                   placeholder="Your Message"
-                  value={values.message || ""}
-                  name="message"
+                  value={values.mensaje || ""}
+                  name="mensaje"
                   onChange={handleChange}
                 />
                 <ValidationType type="message" />
