@@ -35,7 +35,7 @@ const Home = () => {
   }, [])
 
   async function getHero(){
-    const {data} = await axios.get('http://127.0.0.1:3000/hero')
+    const {data} = await axios.get('http://172.31.34.193:3000/hero')
     const hero = data.at(-1)
     const heroFormatted = {...hero, boton: [{title: hero.boton1}, {title: hero.boton2, color: "#fff"}]}
     setHero(heroFormatted)
