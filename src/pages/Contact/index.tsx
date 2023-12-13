@@ -18,7 +18,7 @@ export default function Contact(){
     }, [])
 
     async function getContact(){
-        const {data} = await axios.get('http://127.0.0.1:3000/contact')
+        const {data} = await axios.get('http://18.188.16.173:3000/contact')
         setContacts(data)
     }
 

@@ -35,25 +35,25 @@ const Home = () => {
   }, [])
 
   async function getHero(){
-    const {data} = await axios.get('http://127.0.0.1:3000/hero')
+    const {data} = await axios.get('http://18.188.16.173:3000/hero')
     const hero = data.at(-1)
     const heroFormatted = {...hero, boton: [{title: hero.boton1}, {title: hero.boton2, color: "#fff"}]}
     setHero(heroFormatted)
   }
   async function getStart(){
-    const {data} = await axios.get('http://127.0.0.1:3000/start')
+    const {data} = await axios.get('http://18.188.16.173:3000/start')
     const start = data.at(-1)
     setStart(start)
   }
   async function getAboutus(){
-    const {data} = await axios.get('http://127.0.0.1:3000/aboutus')
+    const {data} = await axios.get('http://18.188.16.173:3000/aboutus')
     const aboutus = data.at(-1)
     const aboutusFormatted = {...aboutus, section: [{title: aboutus.subtitulo1, content: aboutus.subtexto1, icon: "notes.svg"}, {title: aboutus.subtitulo2, content: aboutus.subtexto2, icon: "notes.svg"}]}
 
     setAboutus(aboutusFormatted)
   }
   async function getProduct(){
-    const {data} = await axios.get('http://127.0.0.1:3000/product')
+    const {data} = await axios.get('http://18.188.16.173:3000/product')
     const product = data.at(-1)
 
     setProduct(product)
