@@ -28,7 +28,7 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
   async function postContact(body: any){
     try {
       console.log(body)
-      await axios.post('http://18.188.16.173:3000/contact', body)
+      await axios.post('http://127.0.0.1:3000/contact', body)
     } catch (error) {
       console.log(error)
     }
